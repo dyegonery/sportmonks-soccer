@@ -87,7 +87,7 @@ class Fixture extends SoccerClient
      */
     public function getLastUpdated()
     {
-        $url = "fixtures/updates";
+        $url = "fixtures/latest";
         return $this->call($url);
     }
 }

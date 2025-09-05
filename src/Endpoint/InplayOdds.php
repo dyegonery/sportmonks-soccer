@@ -7,19 +7,16 @@ use Sportmonks\Soccer\SoccerClient;
 use stdClass;
 
 /**
- * Class Odd
+ * Class InplayOdds
  * @package Sportmonks\Soccer\Endpoint
  */
-class Odd extends SoccerClient
-{
+class InplayOdds extends SoccerClient {
     /**
-     * @param int $fixtureId
      * @return stdClass
      * @throws ApiRequestException
      */
-    public function getByFixtureId(int $fixtureId)
-    {
-        $url = "odds/fixture/{$fixtureId}";
+    public function getAll() {
+        $url = "odds/inplay";
         return $this->call($url);
     }
 
@@ -28,9 +25,8 @@ class Odd extends SoccerClient
      * @return stdClass
      * @throws ApiRequestException
      */
-    public function getInPlayByFixtureId(int $fixtureId)
-    {
-        $url = "odds/inplay/fixture/{$fixtureId}";
+    public function getByFixtureId(int $fixtureId) {
+        $url = "odds/inplay/fixtures/{$fixtureId}";
         return $this->call($url);
     }
 
@@ -40,9 +36,8 @@ class Odd extends SoccerClient
      * @return stdClass
      * @throws ApiRequestException
      */
-    public function getByFixtureAndBookmaker(int $fixtureId, int $bookmakerId)
-    {
-        $url = "odds/fixture/{$fixtureId}/bookmaker/{$bookmakerId}";
+    public function getByFixtureAndBookmakerId(int $fixtureId, int $bookmakerId) {
+        $url = "odds/inplay/fixtures/{$fixtureId}/bookmakers/{$bookmakerId}";
         return $this->call($url);
     }
 
@@ -52,9 +47,17 @@ class Odd extends SoccerClient
      * @return stdClass
      * @throws ApiRequestException
      */
-    public function getByFixtureAndMarket(int $fixtureId, int $marketId)
-    {
-        $url = "odds/fixture/{$fixtureId}/market/{$marketId}";
+    public function getByFixtureAndMarketId(int $fixtureId, int $marketId) {
+        $url = "odds/inplay/fixtures/{$fixtureId}/markets/{$marketId}";
+        return $this->call($url);
+    }
+
+    /**
+     * @return stdClass
+     * @throws ApiRequestException
+     */
+    public function getLastUpdated() {
+        $url = "odds/inplay/latest";
         return $this->call($url);
     }
 }

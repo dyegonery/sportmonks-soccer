@@ -12,7 +12,8 @@ use Sportmonks\Soccer\Endpoint\Head2Head;
 use Sportmonks\Soccer\Endpoint\League;
 use Sportmonks\Soccer\Endpoint\LiveScore;
 use Sportmonks\Soccer\Endpoint\Market;
-use Sportmonks\Soccer\Endpoint\Odd;
+use Sportmonks\Soccer\Endpoint\PreMatchOdds;
+use Sportmonks\Soccer\Endpoint\InplayOdds;
 use Sportmonks\Soccer\Endpoint\Player;
 use Sportmonks\Soccer\Endpoint\Prediction;
 use Sportmonks\Soccer\Endpoint\Round;
@@ -113,11 +114,19 @@ class SoccerApi
     }
 
     /**
-     * @return Odd
+     * @return PreMatchOdds
      */
-    public static function odds()
+    public static function preMatchOdds()
     {
-        return new Odd();
+        return new PreMatchOdds();
+    }
+
+    /**
+     * @return InplayOdds
+     */
+    public static function inPlayOdds()
+    {
+        return new InplayOdds();
     }
 
     /**

@@ -12,16 +12,16 @@ use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
 /**
- * Class SoccerClient
+ * Class OddsClient
  * @package Sportmonks\Soccer
  */
-class SoccerClient
+class OddsClient
 {
     private $client;
     private $query = array();
 
     /**
-     * SoccerClient constructor.
+     * OddsClient constructor.
      */
     public function __construct()
     {
@@ -38,8 +38,8 @@ class SoccerClient
             $this->query['timezone'] = $_ENV['SPORTMONKS_TIMEZONE'];
         }
 
-        // Create Client
-        $this->client = HttpClient::create(['base_uri' => "https://api.sportmonks.com/v3/football/"]);
+        // Create Client with correct base URL for odds API
+        $this->client = HttpClient::create(['base_uri' => "https://api.sportmonks.com/v3/odds/"]);
     }
 
     /**
@@ -120,7 +120,7 @@ class SoccerClient
 
     /**
      * @param int $groupId
-     * @return SoccerClient
+     * @return OddsClient
      */
     public function setGroup(int $groupId): self
     {
