@@ -3,14 +3,14 @@
 namespace Sportmonks\Soccer\Endpoint;
 
 use Sportmonks\Soccer\Exception\ApiRequestException;
-use Sportmonks\Soccer\SoccerClient;
+use Sportmonks\Soccer\CoreClient;
 use stdClass;
 
 /**
  * Class Continent
  * @package Sportmonks\Soccer\Endpoint
  */
-class Continent extends SoccerClient
+class Continent extends CoreClient
 {
     /**
      * @return stdClass
