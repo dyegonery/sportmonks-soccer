@@ -28,7 +28,7 @@ class Prediction extends SoccerClient
      */
     public function getProbabilities()
     {
-        $url = "predictions/probabilities/next";
+        $url = "predictions/probabilities";
         return $this->call($url);
     }
 
@@ -39,7 +39,7 @@ class Prediction extends SoccerClient
      */
     public function getProbabilitiesByFixtureId(int $fixtureId)
     {
-        $url = "predictions/probabilities/fixture/{$fixtureId}";
+        $url = "predictions/probabilities/fixtures/{$fixtureId}";
         return $this->call($url);
     }
 
@@ -49,7 +49,7 @@ class Prediction extends SoccerClient
      */
     public function getValueBets()
     {
-        $url = "predictions/valuebets/next";
+        $url = "predictions/value-bets/next";
         return $this->call($url);
     }
 
@@ -60,7 +60,7 @@ class Prediction extends SoccerClient
      */
     public function getValueBetsByFixtureId(int $fixtureId)
     {
-        $url = "predictions/valuebets/fixture/{$fixtureId}";
+        $url = "predictions/value-bets/fixtures/{$fixtureId}";
         return $this->call($url);
     }
 }
